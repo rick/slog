@@ -4,12 +4,12 @@ require 'rake'
 namespace :deploy do
   desc "Perform initial setup for deployment"
   task :setup do
-    WhiskeyDisk.ensure_main_parent_path_is_present        if WhiskeyDisk.remote?
+    WhiskeyDisk.ensure_main_parent_path_is_present        
     WhiskeyDisk.ensure_config_parent_path_is_present     
-    WhiskeyDisk.checkout_main_repository                  if WhiskeyDisk.remote?
-    WhiskeyDisk.install_hooks                             if WhiskeyDisk.remote?
+    WhiskeyDisk.checkout_main_repository                  
+    WhiskeyDisk.install_hooks                             
     WhiskeyDisk.checkout_configuration_repository
-    WhiskeyDisk.update_main_repository_checkout           if WhiskeyDisk.remote?
+    WhiskeyDisk.update_main_repository_checkout           
     WhiskeyDisk.update_configuration_repository_checkout
     WhiskeyDisk.refresh_configuration
     WhiskeyDisk.run_post_setup_hooks
@@ -18,7 +18,7 @@ namespace :deploy do
   
   desc "Deploy now."
   task :now do
-    WhiskeyDisk.update_main_repository_checkout           if WhiskeyDisk.remote?
+    WhiskeyDisk.update_main_repository_checkout           
     WhiskeyDisk.update_configuration_repository_checkout
     WhiskeyDisk.refresh_configuration
     WhiskeyDisk.run_post_deploy_hooks
