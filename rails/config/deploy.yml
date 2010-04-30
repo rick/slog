@@ -1,8 +1,0 @@
-local:
-  repository: "git://github.com/rick/slog.git"
-  deploy_to: "/Users/rick/deploy/slog/"
-  config_repository: "gitosis@eastcore.net:slog-config.git"
-  deploy_config_to: "/Users/rick/deploy/slog-config"
-  branch: "master"
-  rake_env:
-    RAILS_ENV: 'production'
